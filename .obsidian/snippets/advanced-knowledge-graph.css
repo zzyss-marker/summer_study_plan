@@ -1,0 +1,440 @@
+/* 🎨 高级知识图谱样式 - Obsidian CSS片段 */
+
+/* ===== 全局主题设置 ===== */
+.theme-dark {
+  --background-primary: #1a1a1a;
+  --background-secondary: #242424;
+  --background-modifier-border: #3d3d3d;
+  --text-accent: #7c3aed;
+  --text-accent-hover: #8b5cf6;
+}
+
+.theme-light {
+  --background-primary: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-modifier-border: #e2e8f0;
+  --text-accent: #6366f1;
+  --text-accent-hover: #4f46e5;
+}
+
+/* ===== 标题样式增强 ===== */
+.markdown-preview-view h1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2.5em;
+  margin: 1.5em 0 1em 0;
+  text-align: center;
+  position: relative;
+}
+
+.markdown-preview-view h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.markdown-preview-view h2 {
+  color: #4f46e5;
+  border-left: 4px solid #4f46e5;
+  padding-left: 15px;
+  margin: 1.5em 0 1em 0;
+  font-weight: 700;
+}
+
+.markdown-preview-view h3 {
+  color: #059669;
+  position: relative;
+  padding-left: 25px;
+  margin: 1.2em 0 0.8em 0;
+}
+
+.markdown-preview-view h3::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: #059669;
+  font-size: 0.8em;
+}
+
+/* ===== 标签样式美化 ===== */
+.tag {
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: none;
+  color: white !important;
+  text-decoration: none !important;
+  display: inline-block;
+  margin: 2px 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 学科标签 */
+.tag[href="#AI学习"], .tag[href="#机器学习"], .tag[href="#深度学习"] {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.tag[href="#CTF竞赛"], .tag[href="#网络安全"], .tag[href="#渗透测试"] {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.tag[href="#考研准备"], .tag[href="#高等数学"], .tag[href="#数据结构"] {
+  background: linear-gradient(135deg, #feca57, #ff9ff3);
+}
+
+/* 难度标签 */
+.tag[href="#基础"] { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.tag[href="#进阶"] { background: linear-gradient(135deg, #f39c12, #e67e22); }
+.tag[href="#高级"] { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.tag[href="#专家"] { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+
+/* 状态标签 */
+.tag[href="#待学习"] { background: linear-gradient(135deg, #95a5a6, #7f8c8d); }
+.tag[href="#学习中"] { background: linear-gradient(135deg, #3498db, #2980b9); }
+.tag[href="#已掌握"] { background: linear-gradient(135deg, #27ae60, #229954); }
+.tag[href="#需复习"] { background: linear-gradient(135deg, #e67e22, #d35400); }
+
+/* ===== 链接样式增强 ===== */
+.internal-link {
+  color: #6366f1;
+  text-decoration: none;
+  border-bottom: 1px dotted #6366f1;
+  transition: all 0.3s ease;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.internal-link:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid #6366f1;
+  transform: translateY(-1px);
+}
+
+/* 未创建的链接 */
+.internal-link.is-unresolved {
+  color: #ef4444;
+  border-bottom: 1px dotted #ef4444;
+}
+
+.internal-link.is-unresolved:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-bottom: 1px solid #ef4444;
+}
+
+/* ===== 代码块样式 ===== */
+.markdown-preview-view pre {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 1px solid #475569;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 1.5em 0;
+  position: relative;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-preview-view pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: rgba(99, 102, 241, 0.8);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.markdown-preview-view code {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+/* ===== 引用块样式 ===== */
+.markdown-preview-view blockquote {
+  border-left: 4px solid #6366f1;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), transparent);
+  padding: 15px 20px;
+  margin: 1.5em 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.markdown-preview-view blockquote::before {
+  content: '"';
+  font-size: 3em;
+  color: #6366f1;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  opacity: 0.3;
+}
+
+/* ===== 表格样式 ===== */
+.markdown-preview-view table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-preview-view th {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.markdown-preview-view td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.markdown-preview-view tr:nth-child(even) {
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.markdown-preview-view tr:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* ===== 任务列表样式 ===== */
+.markdown-preview-view .task-list-item {
+  list-style: none;
+  margin: 8px 0;
+  position: relative;
+  padding-left: 30px;
+}
+
+.markdown-preview-view .task-list-item-checkbox {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #6366f1;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+}
+
+/* ===== 进度条样式 ===== */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: attr(data-progress);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ===== 卡片样式 ===== */
+.knowledge-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.knowledge-card h3 {
+  margin-top: 0;
+  color: #6366f1;
+}
+
+/* ===== 徽章样式 ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 2px;
+}
+
+.badge-success { background: #dcfce7; color: #166534; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+.badge-error { background: #fee2e2; color: #991b1b; }
+.badge-info { background: #dbeafe; color: #1e40af; }
+
+/* ===== 时间线样式 ===== */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  margin: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
+
+.timeline-item {
+  position: relative;
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border-left: 3px solid #6366f1;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -35px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  background: #6366f1;
+  border-radius: 50%;
+  border: 3px solid var(--background-primary);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+  .markdown-preview-view h1 {
+    font-size: 2em;
+  }
+  
+  .knowledge-card {
+    padding: 15px;
+    margin: 10px 0;
+  }
+  
+  .timeline {
+    padding-left: 20px;
+  }
+  
+  .timeline-item::before {
+    left: -25px;
+  }
+}
+
+/* ===== 动画效果 ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.knowledge-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ===== 图谱视图增强 ===== */
+.graph-view.color-fill {
+  --graph-node: #6366f1;
+  --graph-node-tag: #8b5cf6;
+  --graph-node-attachment: #ec4899;
+  --graph-node-unresolved: #ef4444;
+}
+
+/* ===== 侧边栏美化 ===== */
+.nav-file-title {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-file-title:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  transform: translateX(4px);
+}
+
+.nav-folder-title {
+  font-weight: 600;
+  color: #6366f1;
+}
+
+/* ===== 搜索结果美化 ===== */
+.search-result-file-title {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.search-result-file-match {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
